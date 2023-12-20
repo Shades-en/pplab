@@ -39,9 +39,9 @@ void mergeSortParallel(int arr[], int low, int high){
         #pragma omp parallel sections
         {
             #pragma omp section
-            mergeSortSerial(arr, low, mid);
+            mergeSortParallel(arr, low, mid);
             #pragma omp section
-            mergeSortSerial(arr, mid+1, high);
+            mergeSortParallel(arr, mid+1, high);
         }
         merge(arr, low, mid, high);
     }
